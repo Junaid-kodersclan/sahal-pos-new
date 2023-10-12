@@ -1,27 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Roboto", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 0px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Blue background color on auto-fill */
+input:-webkit-autofill {
+  background-color: transparent !important;
+}
+
+/* react-calendar styles  */
+.react-calendar {
+  padding: 4px;
+  color: #454f5f;
+  overflow: hidden;
+  border-radius: 10px;
+  border: none !important;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+button.react-calendar__navigation__arrow.react-calendar__navigation__next-button,
+button.react-calendar__navigation__arrow.react-calendar__navigation__prev-button,
+button.react-calendar__navigation__arrow.react-calendar__navigation__prev2-button,
+button.react-calendar__navigation__arrow.react-calendar__navigation__next2-button {
+  font-size: 26px;
+}
+
+span.react-calendar__navigation__label__labelText.react-calendar__navigation__label__labelText--from {
+  font-weight: bold;
+  font-size: 18px;
 }
