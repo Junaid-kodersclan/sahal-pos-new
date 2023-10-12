@@ -3,7 +3,7 @@ import { BiCalendar, BiCube } from "react-icons/bi";
 
 type PropsType = {
   isActive: boolean;
-  data: NotificationType;
+  data: any;
 };
 
 export default function NotificationListItem(props: PropsType) {
@@ -19,10 +19,10 @@ export default function NotificationListItem(props: PropsType) {
         <i className="w-8 h-8 flex items-center justify-center bg-iron bg-opacity-60 text-primary text-2xl max-sm:text-xl rounded-full p-1">
           <BiCube />
         </i>
-        <p className="pl-2 max-sm:text-xs truncate w-full">{data?.message}</p>
+        <p className="pl-2 max-sm:text-xs truncate w-full">{data?.title}</p>
       </div>
       <div className="flex flex-col items-center justify-center">
-        <p className="text-dull max-sm:text-sm">{data.time}</p>
+        <p className="text-dull max-sm:text-sm">{data.id}</p>
         <BiCalendar className="text-2xl max-sm:text-xl text-dull" />
       </div>
     </div>
