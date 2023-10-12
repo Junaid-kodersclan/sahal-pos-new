@@ -1,9 +1,12 @@
+"use client";
+
 import ProfileGoBackButton from "./ProfileGoBackButton";
 import InputWithLabel from "../common/InputWithLabel";
 import { appStyles } from "@/theme/appStyles";
 import Button from "../common/Button";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
+import { useSelector } from "react-redux";
 
 let Schema = object({
   email: string().email().required("Email is a required field"),
@@ -24,11 +27,17 @@ let initialValues = {
 };
 
 type PropsType = {
-  handleGoToOptions: () => void;
+  // handleGoToOptions: () => void;
 };
 
 export default function PersonalInformation(props: PropsType) {
-  const { handleGoToOptions } = props;
+  const {} = props;
+
+  // redux store data
+  const storeData = useSelector((state: any) => state.store.storeList[0]);
+  // console.log({ storeData });
+  const category = useSelector((state: any) => state.category.categoryList);
+  console.log({ category });
 
   return (
     <Formik
@@ -42,7 +51,9 @@ export default function PersonalInformation(props: PropsType) {
         return (
           <Form className="md:w-2/3">
             <div className="flex items-center text-txt w-full">
-              <ProfileGoBackButton handleGoToOptions={handleGoToOptions} />
+              <ProfileGoBackButton
+                handleGoToOptions={() => console.log("hello")}
+              />
               <h3 className={appStyles.PROFILE_FORM_TITLE}>
                 Personal Information
               </h3>

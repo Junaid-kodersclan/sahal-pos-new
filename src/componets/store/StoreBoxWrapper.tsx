@@ -15,6 +15,7 @@ import Button from "../common/Button";
 import { Form, Formik } from "formik";
 import { object, string } from "yup";
 import _ from "lodash";
+import { addCategoryAction } from "@/store/categorySlice";
 
 const Schema = object({
   title: string().required("Name is a required field"),
@@ -25,11 +26,7 @@ const Schema = object({
 });
 
 type PropsType = {};
-type StateType = {
-  store: {
-    storeList: StoreType[];
-  };
-};
+type StateType = { store: { storeList: StoreType[] } };
 
 export default function GeneralTab(props: PropsType) {
   const {} = props;
@@ -83,8 +80,25 @@ export default function GeneralTab(props: PropsType) {
     successToast("Store added successfully ");
   };
 
+  const testData = {
+    title: `_title_ ${Math.random() * 10}`,
+    email: "_email_",
+    logo: "_logo_",
+    currency: "_currency_",
+    address: "_address_",
+    web: "_web_",
+    country: "_country_",
+    state: "_state_",
+    city: "_city_",
+    phone: "_phone_",
+    phoneCode: "_+92_",
+    desc: "_desc_",
+  };
+
   // handle update store
   const handleUpdateStore = (obj: StoreType) => {
+    console.log({ obj });
+
     const payload = {
       title: obj.title,
       email: obj.email,
@@ -135,6 +149,24 @@ export default function GeneralTab(props: PropsType) {
       {({ values, errors, setFieldValue, handleBlur }) => {
         return (
           <Form className={appStyles.STORE_AND_ADD_PRODUCT_FORM}>
+            {/* button */}
+            <button
+              type="button"
+              onClick={() => {
+                handleUpdateStore(testData);
+                dispatch(
+                  addCategoryAction({
+                    id: Math.floor(Math.random()) * 10,
+                    userId: 1,
+                    storeId: 1,
+                    title: `"clothes" ${Math.floor(Math.random()) * 10}`,
+                  })
+                );
+              }}
+            >
+              testing button
+            </button>
+
             <ImageBox title="Logo" desc="Upload your store logo from here" />
             <BasicInfoBox titleError={errors.title} />
             <AddressBox

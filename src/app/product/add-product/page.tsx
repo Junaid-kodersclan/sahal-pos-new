@@ -2,11 +2,11 @@
 
 import ProductInformationBox from "@/componets/addProduct/ProductInformationBox";
 import BrandAndCategoryBox from "@/componets/addProduct/BrandAndCategoryBox";
+import { CategoryType, ProductType, StoreType } from "@/helper/types";
 import SidebarContainer from "@/componets/common/SidebarContainer";
 import DescriptionBox from "@/componets/addProduct/DescriptionBox";
 import CategorySidebar from "@/componets/product/CategorySidebar";
 import BrandSidebar from "@/componets/product/BrandSidebar";
-import { CategoryType, ProductType, StoreType } from "@/helper/types";
 import ImageBox from "@/componets/addProduct/ImageBox";
 import Button from "@/componets/common/Button";
 import { appStyles } from "@/theme/appStyles";

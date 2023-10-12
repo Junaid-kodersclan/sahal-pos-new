@@ -14,7 +14,7 @@ import {
 let persistConfig = {
   key: "root",
   storage,
-  // whitelist: ["user", "store", "general"],
+  whitelist: [],
 };
 
 let persistedReducer = persistReducer(persistConfig, rootReducer);
